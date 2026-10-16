@@ -43,3 +43,21 @@ float Vector2D::getX() const{
 float Vector2D::getY() const{
     return y;
 }
+
+Vector2D Vector2D::getOrthogonal() const{
+    Vector2D normal = Vector2D(-y, x);
+    float length = normal.getLength();
+    if (length != 0){
+        normal.scaleVector(1/length);
+    }
+    return normal;
+}
+
+Vector2D Vector2D::getNormalized() const{
+    Vector2D tangent = Vector2D(x, y);
+    float length = tangent.getLength();
+    if (length != 0){
+        tangent.scaleVector(1/length);
+    }
+    return tangent;
+}
